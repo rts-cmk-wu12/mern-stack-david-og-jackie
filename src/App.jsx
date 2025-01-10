@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router"
+
 
 
 
 function App() {
+
+ 
 const [users, setUsers] = useState([])
 //fetch fra vores api/server
   useEffect(()=>{
+
+
+
+
    async function fetchData(){
       const response =  await fetch("/posts")
       const data = await response.json()
@@ -19,24 +27,15 @@ const [users, setUsers] = useState([])
   return (
     <>
       
-  Tweeter
-  <form  method="post">
-    <input type="text" />
-    <input type="text" />
-    <input type="text" />
-    <input type="submit" />
-  </form>
-
-
-
-
-      {/* <h1>
-        list of users:
+      <h1>
+        Twitter posts:   <Link to="/details">post selv</Link>
         {users.map((user,index) =>(
-          <div key={index}> {user.headline}  {user.text}  {user ._id} </div>
-          
+         <Link to={`/haha/${user._id}`}>   <div key={index}> Your{user.y} Email: {user.headline} ID : {user.text} </div>  </Link> 
+         
+        
+            
         ))}
-      </h1> */}
+      </h1>
      
       
     </>

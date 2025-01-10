@@ -1,5 +1,5 @@
 import express from 'express';
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 import ViteExpress from 'vite-express';
 
 const CONNECTION_STRING = "mongodb+srv://jackiealexandar:C2hTLPG0h0MauT3K@cluster0.t5lji.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -33,6 +33,17 @@ const posts= database.collection("posts")
 posts.insertOne(request.body)
     
 })
+
+server.get('/posts/:id', async(request,response)=>{
+    const id = new ObjectId(request.params.id)
+    const query = { _id: id };
+    const collection = database.collection("posts")
+    const singlePost = await collection.findOne(query)
+    response.json(singlePost)
+    console.log(id);
+    
+});
+
 
 
 

@@ -29,9 +29,11 @@ server.get('/posts', async (_, response) => {
 server.post("/newposts", (request, response) => {
    
     console.log(request.body);
-
+const posts= database.collection("posts")
+posts.insertOne(request.body)
     
 })
+
 
 
 

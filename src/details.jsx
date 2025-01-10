@@ -52,12 +52,13 @@ export default function Details() {
         <>
             <h1>Sign up</h1>
             <form ref={formElement} className="signup-form" onSubmit={submitHandler}>
-                <input className="signup-form__input" name="firstname" placeholder="First name..." />
-
+                <input className="signup-form__input" name="_id" placeholder="First name..." />
+                <input className="signup-form__input" name="headline" placeholder="First name..." />
+                <input className="signup-form__input" name="text" placeholder="First name..." />
 
                 <input className="signup-form__button" type="submit" value="Sign Up" />
             </form>
-            <p>{posts?.firstname}</p>
+            <p>{posts?.text}</p>
         </>
     );
 }

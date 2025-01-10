@@ -22,6 +22,8 @@ const [users, setUsers] = useState([])
   Tweeter
   <form  method="post">
     <input type="text" />
+    <input type="text" />
+    <input type="text" />
     <input type="submit" />
   </form>
 
